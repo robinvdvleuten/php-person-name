@@ -1,0 +1,37 @@
+{
+    "name": "webstronauts/person-name",
+    "description": "Presenting names of people in full, familiar, abbreviated, and initialized forms (but without titulation etc)",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin van der Vleuten",
+            "email": "robin@webstronauts.co"
+        }
+    ],
+    "homepage" : "https://github.com/webstronauts/php-person-name",
+    "autoload": {
+        "psr-4": {
+            "Webstronauts\\PersonName\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webstronauts\\PersonName\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
