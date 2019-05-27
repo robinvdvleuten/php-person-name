@@ -6,7 +6,8 @@
     "authors": [
         {
             "name": "Robin van der Vleuten",
-            "email": "robin@webstronauts.co"
+            "email": "robin@webstronauts.co",
+            "homepage": "https://webstronauts.co"
         }
     ],
     "homepage" : "https://github.com/webstronauts/php-person-name",
