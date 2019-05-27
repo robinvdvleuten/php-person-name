@@ -59,7 +59,7 @@ class PersonName
      *
      * @return string
      */
-    public function full()
+    public function full(): string
     {
         return $this->last ? "{$this->first} {$this->last}" : $this->first;
     }
@@ -69,7 +69,7 @@ class PersonName
      *
      * @return string
      */
-    public function familiar()
+    public function familiar(): string
     {
         return $this->last ? "{$this->first} {$this->last[0]}." : $this->first;
     }
@@ -79,7 +79,7 @@ class PersonName
      *
      * @return string
      */
-    public function abbreviated()
+    public function abbreviated(): string
     {
         return $this->last ? "{$this->first[0]}. {$this->last}" : $this->first;
     }
@@ -89,7 +89,7 @@ class PersonName
      *
      * @return string
      */
-    public function sorted()
+    public function sorted(): string
     {
         return $this->last ? "{$this->last}, {$this->first}" : $this->first;
     }
@@ -99,7 +99,7 @@ class PersonName
      *
      * @return string
      */
-    public function possessive()
+    public function possessive(): string
     {
         return sprintf('%s\'%s', $this, substr($this, -1) !== 's' ? 's' : '');
     }
@@ -109,7 +109,7 @@ class PersonName
      *
      * @return string
      */
-    public function initials()
+    public function initials(): string
     {
         preg_match_all('/([[:word:]])[[:word:]]+/i', preg_replace('/(\(|\[).*(\)|\])/', '', $this), $matches);
 
@@ -121,7 +121,7 @@ class PersonName
      *
      * @return string
      */
-    public function mentionable()
+    public function mentionable(): string
     {
         return strtolower(preg_replace('/\s+/', '', substr($this->familiar, 0, -1)));
     }
@@ -130,14 +130,14 @@ class PersonName
      * Make the methods accessibles as attributes.
      *
      * @param  string  $attribute
-     * @return string
+     * @return mixed
      */
     public function __get($attribute)
     {
         return call_user_func([$this, $attribute]);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->full;
     }
