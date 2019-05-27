@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/webstronauts/person-name.svg?style=flat-square)](https://packagist.org/packages/webstronauts/person-name)
 [![Build Status](https://img.shields.io/travis/webstronauts/php-person-name/master.svg?style=flat-square)](https://travis-ci.org/webstronauts/php-person-name)
 [![Quality Score](https://img.shields.io/scrutinizer/g/webstronauts/php-person-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/webstronauts/php-person-name)
+[![StyleCI](https://github.styleci.io/repos/188848621/shield?branch=master)](https://github.styleci.io/repos/188848621)
 [![Total Downloads](https://img.shields.io/packagist/dt/webstronauts/person-name.svg?style=flat-square)](https://packagist.org/packages/webstronauts/person-name)
 
 Presenting names for English-language applications where a basic model of first and last name(s) combined is sufficient. This approach is not meant to cover all possible naming cases, deal with other languages, or even titulations. Just the basics.
