@@ -32,13 +32,53 @@ echo $name->mentionable // "davidh"
 echo $name->possessive  // "David Heinemeier Hansson's"
 ```
 
+### Laravel
+
+This is an example model which exposes a `name` virtual attribute composed from the `first_name` and `last_name` attributes:
+
+```php
+class User extends Model
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'first_name', 'last_name',
+    ];
+
+    /**
+     * Return a PersonName instance composed from the `first_name` and `last_name` attributes.
+     * 
+     * @return PersonName
+     */
+    public function getNameAttribute()
+    {
+        return new PersonName($this->first_name, $this->last_name);
+    }
+
+    /** 
+     * Sets the `first_name` and `last_name` attributes from a full name.
+     * 
+     * @param  string $name
+     * @return void
+     */
+    public function setNameAttribute($name)
+    {
+        $fullName = PersonName::make($name);
+        [$this->first_name, $this->last_name] = $fullName ? [$fullName->first, $fullName->last] : [null, null];
+    }
+}
+```
+
 ### Testing
 
 ``` bash
 composer test
 ```
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
