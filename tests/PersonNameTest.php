@@ -187,6 +187,5 @@ class PersonNameTest extends TestCase
         $this->assertEquals('Baz', $a->abbreviated);
         $this->assertEquals('Baz', $a->sorted);
         $this->assertEquals('Baz\'s', $a->possessive);
-
     }
 }

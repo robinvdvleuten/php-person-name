@@ -2,6 +2,17 @@
 
 namespace Webstronauts\PersonName;
 
+/**
+ * @property string $first
+ * @property string $last
+ * @property string $full
+ * @property string $familiar
+ * @property string $abbreviated
+ * @property string $sorted
+ * @property string $possessive
+ * @property string $initials
+ * @property string $mentionable
+ */
 class PersonName
 {
     /**
@@ -26,7 +37,6 @@ class PersonName
      *
      * @param string $first
      * @param string $last
-     * @return void
      */
     public function __construct(string $first, string $last = null)
     {
@@ -102,11 +112,12 @@ class PersonName
     public function initials()
     {
         preg_match_all('/([[:word:]])[[:word:]]+/i', preg_replace('/(\(|\[).*(\)|\])/', '', $this), $matches);
+
         return implode('', end($matches));
     }
 
     /**
-     * Returns a mentionable version of the familiar name
+     * Returns a mentionable version of the familiar name.
      *
      * @return string
      */
