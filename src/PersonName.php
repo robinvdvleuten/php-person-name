@@ -27,9 +27,9 @@ class PersonName
 
     public static function make(?string $fullName = null): ?self
     {
-        [$first, $last] = preg_split('/\s/', trim(preg_replace('/\s+/', ' ', $fullName)), 2);
+        $segments = preg_split('/\s/', trim(preg_replace('/\s+/', ' ', $fullName)), 2);
 
-        return $first ? new static($first, $last) : null;
+        return $segments[0] ? new static($segments[0], $segments[1] ?? null) : null;
     }
 
     /**
