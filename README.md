@@ -86,7 +86,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 As it's just a simple port of Ruby to PHP code. All credits should go to the Basecamp team and their [name_of_person](https://github.com/basecamp/name_of_person) gem.
 
-- [robinvdvleuten](https://github.com/robinvdvleuten)
+- [Robin van der Vleuten](https://github.com/robinvdvleuten)
 - [All Contributors](../../contributors)
 
 ## License
