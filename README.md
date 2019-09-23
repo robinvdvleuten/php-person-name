@@ -38,6 +38,8 @@ echo $name->possessive  // "David Heinemeier Hansson's"
 This is an example model which exposes a `name` virtual attribute composed from the `first_name` and `last_name` attributes:
 
 ```php
+use Webstronauts\PersonName\PersonName;
+
 class User extends Model
 {
     /**
