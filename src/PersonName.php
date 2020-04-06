@@ -38,7 +38,7 @@ class PersonName
      * @param string $first
      * @param string $last
      */
-    public function __construct(string $first, string $last = null)
+    public function __construct(string $first, ?string $last = null)
     {
         $this->first = $first;
         $this->last = $last;
