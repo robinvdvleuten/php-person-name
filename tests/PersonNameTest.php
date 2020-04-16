@@ -73,6 +73,12 @@ class PersonNameTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_initials_for_single_letter()
+    {
+        $this->assertEquals('D', PersonName::make('D')->initials);
+    }
+
+    /** @test */
     public function it_skips_anything_inside_parenthesis_when_returning_initials()
     {
         $this->assertEquals('CM', PersonName::make('Conor Muirhead (Basecamp)')->initials);

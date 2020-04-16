@@ -111,7 +111,7 @@ class PersonName
      */
     public function initials(): string
     {
-        preg_match_all('/([[:word:]])[[:word:]]+/i', preg_replace('/(\(|\[).*(\)|\])/', '', $this), $matches);
+        preg_match_all('/([[:word:]])[[:word:]]*/i', preg_replace('/(\(|\[).*(\)|\])/', '', $this), $matches);
 
         return implode('', end($matches));
     }
