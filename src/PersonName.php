@@ -15,6 +15,13 @@ namespace Webstronauts\PersonName;
  */
 class PersonName
 {
+    const POSSESSIVE_FIRST = 'first';
+    const POSSESSIVE_LAST = 'last';
+    const POSSESSIVE_FULL = 'full';
+    const POSSESSIVE_INITIALS = 'initials';
+    const POSSESSIVE_SORTED = 'sorted';
+    const POSSESSIVE_ABBREVIATED = 'abbreviated';
+
     /**
      * @var string
      */
@@ -97,11 +104,12 @@ class PersonName
     /**
      * Returns full name with with trailing 's or ' if name ends in s.
      *
+     * @param  string  $method
      * @return string
      */
-    public function possessive(): string
+    public function possessive(string $method = self::POSSESSIVE_FULL): string
     {
-        return sprintf('%s\'%s', $this, substr($this, -1) !== 's' ? 's' : '');
+        return sprintf('%s\'%s', call_user_func([$this, $method]), substr($this, -1) !== 's' ? 's' : '');
     }
 
     /**

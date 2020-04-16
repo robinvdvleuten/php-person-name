@@ -60,6 +60,36 @@ class PersonNameTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_possessive_first_name()
+    {
+        $this->assertEquals('Foo\'s', (new PersonName('Foo', 'Bar'))->possessive(PersonName::POSSESSIVE_FIRST));
+    }
+
+    /** @test */
+    public function it_returns_possessive_last_name()
+    {
+        $this->assertEquals('Bar\'s', (new PersonName('Foo', 'Bar'))->possessive(PersonName::POSSESSIVE_LAST));
+    }
+
+    /** @test */
+    public function it_returns_possessive_sorted()
+    {
+        $this->assertEquals('Bar, Foo\'s', (new PersonName('Foo', 'Bar'))->possessive(PersonName::POSSESSIVE_SORTED));
+    }
+
+    /** @test */
+    public function it_returns_possessive_initials()
+    {
+        $this->assertEquals('FB\'s', (new PersonName('Foo', 'Bar'))->possessive(PersonName::POSSESSIVE_INITIALS));
+    }
+
+    /** @test */
+    public function it_returns_possessive_abbreviated()
+    {
+        $this->assertEquals('F. Bar\'s', (new PersonName('Foo', 'Bar'))->possessive(PersonName::POSSESSIVE_ABBREVIATED));
+    }
+
+    /** @test */
     public function it_returns_initials()
     {
         $this->assertEquals('DHH', PersonName::make('David Heinemeier Hansson')->initials);
