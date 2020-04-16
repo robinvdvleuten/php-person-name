@@ -1,7 +1,4 @@
 # Changelog
 
-All notable changes to `person-name` will be documented in this file
-
-## v1.0.0 - 2019-05-27
-
-- initial release
+This project adheres to [Semantic Versioning](http://semver.org/).  
+Every release is documented on the Github [Releases](https://github.com/webstronauts/php-person-name/releases) page.

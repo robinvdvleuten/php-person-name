@@ -83,7 +83,7 @@ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Detailed release notes for a given version can be found on [our releases page](https://github.com/webstronauts/php-person-name/releases).
 
 ## Credits
 
