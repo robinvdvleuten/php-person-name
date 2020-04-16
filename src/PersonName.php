@@ -15,11 +15,11 @@ namespace Webstronauts\PersonName;
  */
 class PersonName
 {
-    const POSSESSIVE_FIRST       = 'first';
-    const POSSESSIVE_LAST        = 'last';
-    const POSSESSIVE_FULL        = 'full';
-    const POSSESSIVE_INITIALS    = 'initials';
-    const POSSESSIVE_SORTED      = 'sorted';
+    const POSSESSIVE_FIRST = 'first';
+    const POSSESSIVE_LAST = 'last';
+    const POSSESSIVE_FULL = 'full';
+    const POSSESSIVE_INITIALS = 'initials';
+    const POSSESSIVE_SORTED = 'sorted';
     const POSSESSIVE_ABBREVIATED = 'abbreviated';
 
     /**
