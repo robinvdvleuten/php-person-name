@@ -32,6 +32,21 @@ class PersonName
      */
     private $last;
 
+    /**
+     * @var array
+     */
+    public $wordSplitters = [];
+
+    /**
+     * @var array
+     */
+    public $lowercaseExceptions = [];
+
+    /**
+     * @var array
+     */
+    public $uppercaseExceptions = [];
+
     public static function make(?string $fullName = null): ?self
     {
         $segments = preg_split('/\s/', trim(preg_replace('/\s+/', ' ', $fullName)), 2);
@@ -49,6 +64,9 @@ class PersonName
     {
         $this->first = $first;
         $this->last = $last;
+        $this->wordSplitters = [' ', '-', "O'", "L'", "La'", "D'", "De'", 'St.', 'Mc', 'Mac'];
+        $this->lowercaseExceptions = ['the', 'van', 'den', 'von', 'und', 'der', 'de', 'da', 'of', 'and', "l'", "d'"];
+        $this->uppercaseExceptions = ['III', 'IV', 'VI', 'VII', 'VIII', 'IX'];
     }
 
     public function first(): string
@@ -132,6 +150,46 @@ class PersonName
     public function mentionable(): string
     {
         return strtolower(preg_replace('/\s+/', '', substr($this->familiar, 0, -1)));
+    }
+
+    /**
+     * Returns a proper name case version of the full name.
+     * @param  string $name Which part of the name to proper case. Default full|first|last.
+     *
+     * @return string
+     */
+    public function proper($name = null): string
+    {
+        switch ($name) {
+            case 'first':
+                $name = strtolower($this->first());
+                break;
+            case 'last':
+                $name = strtolower($this->last());
+                break;
+            default:
+                $name = strtolower($this->full());
+        }
+        foreach ($this->wordSplitters as $delimiter) {
+            $words = explode($delimiter, $name);
+            $newWords = [];
+            foreach ($words as $word) {
+                if (in_array(strtoupper($word), $this->uppercaseExceptions)) {
+                    $word = strtoupper($word);
+                } elseif (!in_array($word, $this->lowercaseExceptions)) {
+                    $word = ucfirst($word);
+                }
+                $newWords[] = $word;
+            }
+
+            if (in_array(strtolower($delimiter), $this->lowercaseExceptions)) {
+                $delimiter = strtolower($delimiter);
+            }
+
+            $name = implode($delimiter, $newWords);
+        }
+
+        return $name;
     }
 
     /**

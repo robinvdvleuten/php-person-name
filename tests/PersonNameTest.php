@@ -224,4 +224,56 @@ class PersonNameTest extends TestCase
         $this->assertEquals('Baz', $a->sorted);
         $this->assertEquals('Baz\'s', $a->possessive);
     }
+
+    /** @test */
+    public function it_returns_proper_first_name()
+    {
+        $a = new PersonName("de'andre");
+
+        $this->assertEquals("De'Andre", $a->proper('first'));
+
+        $b = new PersonName('NORM');
+
+        $this->assertEquals('Norm', $b->proper('first'));
+
+        $c = new PersonName('nOrM');
+
+        $this->assertEquals('Norm', $c->proper('first'));
+    }
+
+    /** @test */
+    public function it_returns_proper_last_name()
+    {
+        $a = new PersonName('norm', 'macdonald');
+
+        $this->assertEquals('MacDonald', $a->proper('last'));
+
+        $b = new PersonName('DANIEL', "O'DELL");
+
+        $this->assertEquals("O'Dell", $b->proper('last'));
+
+        $c = new PersonName('JANINE', "LA'QUANDA");
+
+        $this->assertEquals("La'Quanda", $c->proper('last'));
+    }
+
+    /** @test */
+    public function it_returns_proper_full_name()
+    {
+        $a = new PersonName("de'andre", 'lewis');
+
+        $this->assertEquals("De'Andre Lewis", $a->proper('full'));
+
+        $b = new PersonName('DANIEL', "O'DELL");
+
+        $this->assertEquals("Daniel O'Dell", $b->proper());
+
+        $c = new PersonName('JANINE', "LA'QUANDA");
+
+        $this->assertEquals("Janine La'Quanda", $c->proper('argument_does_not_exist'));
+
+        $d = new PersonName('NORM', "MACDONALD");
+
+        $this->assertEquals("Norm MacDonald", $d->proper);
+    }
 }
