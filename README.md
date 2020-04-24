@@ -31,6 +31,9 @@ echo $name->abbreviated // "D. Heinemeier Hansson"
 echo $name->sorted      // "Heinemeier Hansson, David"
 echo $name->mentionable // "davidh"
 echo $name->possessive  // "David Heinemeier Hansson's"
+
+$name = new PersonName::make("DANIEL O'DELL")
+echo $name->proper // Daniel O'Dell
 ```
 
 ### Laravel
