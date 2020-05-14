@@ -89,6 +89,10 @@ composer test
 
 Detailed release notes for a given version can be found on [our releases page](https://github.com/webstronauts/php-person-name/releases).
 
+## Contributing
+
+This package is based on the [name_of_person](https://github.com/basecamp/name_of_person) gem and we would like to mimic their functionality as close as possible. As the gem is in a frozen state, we also do not accept any PRs regarding new functionality. If you encounter a bug though, you're welcome to open an issue.
+
 ## Credits
 
 As it's just a simple port of Ruby to PHP code. All credits should go to the Basecamp team and their [name_of_person](https://github.com/basecamp/name_of_person) gem.
