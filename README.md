@@ -20,6 +20,8 @@ composer require webstronauts/person-name
 ## Usage
 
 ``` php
+<?php
+
 $name = new PersonName::make('David Heinemeier Hansson')
 
 echo $name->full        // "David Heinemeier Hansson"
@@ -38,6 +40,8 @@ echo $name->possessive  // "David Heinemeier Hansson's"
 This is an example model which exposes a `name` virtual attribute composed from the `first_name` and `last_name` attributes:
 
 ```php
+<?php
+
 use Webstronauts\PersonName\PersonName;
 
 class User extends Model
