@@ -1,7 +1,7 @@
 # PersonName
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/webstronauts/person-name.svg?style=flat-square)](https://packagist.org/packages/webstronauts/person-name)
-[![Build Status](https://img.shields.io/github/workflow/status/webstronauts/php-person-name/test.svg?style=flat-square)](https://travis-ci.com/webstronauts/php-person-name)
+[![Build Status](https://img.shields.io/github/workflow/status/webstronauts/php-person-name/run-tests.svg?style=flat-square)](https://github.com/webstronauts/php-person-name/actions?query=workflow%3Arun-tests)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/webstronauts/php-person-name/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/webstronauts/php-person-name)
 [![Quality Score](https://img.shields.io/scrutinizer/g/webstronauts/php-person-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/webstronauts/php-person-name)
 [![StyleCI](https://github.styleci.io/repos/188848621/shield?branch=master)](https://github.styleci.io/repos/188848621)

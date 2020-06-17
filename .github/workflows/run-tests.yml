@@ -1,17 +1,17 @@
-name: test
+name: run-tests
 
 on: [push, pull_request]
 
 jobs:
-    test:
-        runs-on: ${{ matrix.os }}
+    tests:
+        runs-on: ubuntu-latest
         strategy:
-            fail-fast: false
+            fail-fast: true
             matrix:
-                os: [ubuntu-latest]
                 php: [7.2, 7.3, 7.4]
+                dependency-version: [prefer-lowest, prefer-stable]
 
-        name: PHP ${{ matrix.php }} - ${{ matrix.os }}
+        name: PHP ${{ matrix.php }} - ${{ matrix.dependency-version }}
 
         steps:
             -   name: Checkout code
@@ -30,7 +30,7 @@ jobs:
                     coverage: xdebug
 
             -   name: Install dependencies
-                run: composer install --prefer-dist --no-interaction --no-suggest
+                run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
             -   name: Execute tests
                 run: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
